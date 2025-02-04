@@ -60,6 +60,6 @@ FIREBASE_APP_CHECK_DEBUG_TOKEN=token
 
 2. Create a folder `__generated__` in apps/web/src/utils.
 
-3. You will encounter an error related to the package `universe@workspace` while installing dependencies. This is because `universe@workspace` is **not a valid package**. To resolve this, remove the `"name"` and `"version"` fields from the root `package.json`.
+3. You will encounter an error related to the package `universe@workspace` while installing dependencies. This is because `universe@workspace` is **not a valid package**. To resolve this, remove the `"name"` and `"version"` fields from the root `package.json` or you can add `"private":true`.
 
 4. You may also face an issue related to the package `@apidevtools/json-schema-ref-parser`. I am currently working on resolving this and have opened an issue on Uniswap's GitHub. You can track the issue here: [GitHub Issue](https://github.com/Uniswap/interface/issues/7835).
