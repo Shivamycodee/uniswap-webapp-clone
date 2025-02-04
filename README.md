@@ -2,19 +2,21 @@
 
 - This repo is a clone of uniswap web app: [app.uniswap.org](https://app.uniswap.org)
 
-- Although the main code for web app is at apps/web but the whole structure is a monorepo provided by uniswap to hold/handle all of their products
-  UI like Uniswap Mobile App (Android/IOS) , Uniswap Extension, Uniswap Web APP.
+- Although the main code for the web app is located in `apps/web`, the whole structure follows a monorepo setup provided by Uniswap to manage all of their UI products, including the **Uniswap Mobile App (Android/iOS), Uniswap Extension, and Uniswap Web App**.
 
 
-## Offical instructions by uniswap to run web app...
+
+## Official Instructions by Uniswap to Run the Web App
 
 ```shell
+$ git clone https://github.com/Uniswap/interface
+$ cd interface
 $ yarn
 $ yarn web start
 
 ```
 
-- But unfortunality, by doing this you will run into multiple errors. below I have mentioned how we can solve few of those errors i was able to resolve.
+- Unfortunately, running these commands will result in multiple errors. Below, I have outlined how to resolve some of the issues I encountered.
 
 ## How to resolve issues.
 
@@ -58,7 +60,6 @@ FIREBASE_APP_CHECK_DEBUG_TOKEN=token
 
 2. Create a folder `__generated__` in apps/web/src/utils.
 
-3. You will get an error regarding package `universe@workspace` while downloading modules because `universe@workspace` IS NOT A PACKAGE. you have to remove the "name" & "version" from the root package.json to resolve this.
+3. You will encounter an error related to the package `universe@workspace` while installing dependencies. This is because `universe@workspace` is **not a valid package**. To resolve this, remove the `"name"` and `"version"` fields from the root `package.json`.
 
-4. Then you may encounter issue regarding package @apidevtools/json-schema-ref-parser, I'm trying to solve this right now, I have open an issue on uniswap github [click here to view](https://github.com/Uniswap/interface/issues/7835).
-
+4. You may also face an issue related to the package `@apidevtools/json-schema-ref-parser`. I am currently working on resolving this and have opened an issue on Uniswap's GitHub. You can track the issue here: [GitHub Issue](https://github.com/Uniswap/interface/issues/7835).
