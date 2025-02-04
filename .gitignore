@@ -5,16 +5,15 @@ node_modules
 .pnp
 .pnp.js
 
+
 # testing
-coverage
 
 # utility script output
-scripts/dist
+# scripts/dist
 
 # next.js
 .next/
-out/
-build
+
 
 # misc
 .DS_Store
@@ -37,9 +36,9 @@ yarn-error.log*
 .yarn/cache
 .yarn/versions
 .yarn/install-state.gz
-
-dist/out-tsc/*
-
+moi-yarn.lock
+.yarn
+.yarnrc.yml
 # Locale backup/generated files
 packages/uniswap/src/i18n/locales/source/*_old.json
 

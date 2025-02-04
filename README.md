@@ -1,56 +1,64 @@
-# Uniswap Labs: Front End Interfaces
+# Uniswap web app clone.
 
-An open source repository for all Uniswap front end interfaces maintained by Uniswap Labs. Uniswap is a protocol for decentralized exchange of Ethereum tokens.
+- This repo is a clone of uniswap web app: [app.uniswap.org](https://app.uniswap.org)
 
-## Interfaces
+- Although the main code for web app is at apps/web but the whole structure is a monorepo provided by uniswap to hold/handle all of their products
+  UI like Uniswap Mobile App (Android/IOS) , Uniswap Extension, Uniswap Web APP.
 
-- Web: [app.uniswap.org](https://app.uniswap.org)
-- Wallet (mobile + extension): [wallet.uniswap.org](https://wallet.uniswap.org)
 
-## Socials / Contact
+## Offical instructions by uniswap to run web app...
 
-- Twitter: [@Uniswap](https://twitter.com/Uniswap)
-- Reddit: [/r/Uniswap](https://www.reddit.com/r/Uniswap/)
-- Email: [contact@uniswap.org](mailto:contact@uniswap.org)
-- Discord: [Uniswap](https://discord.gg/FCfyBSbCU5)
+```shell
+$ yarn
+$ yarn web start
 
-## Uniswap Links
+```
 
-- Website: [uniswap.org](https://uniswap.org/)
-- Docs: [uniswap.org/docs/](https://docs.uniswap.org/)
+- But unfortunality, by doing this you will run into multiple errors. below I have mentioned how we can solve few of those errors i was able to resolve.
 
-## Whitepapers
+## How to resolve issues.
 
-- [V4](https://uniswap.org/whitepaper-v4.pdf)
-- [V3](https://uniswap.org/whitepaper-v3.pdf)
-- [V2](https://uniswap.org/whitepaper.pdf)
-- [V1](https://hackmd.io/C-DvwDSfSxuh-Gd4WKE_ig)
+1. Create this file `.env.defaults` in the root of the project and the this data in it...
 
-## Apps
+```shell
+ALCHEMY_API_KEY=key
+AMPLITUDE_EXPERIMENTS_DEPLOYMENT_KEY=key
+APPSFLYER_API_KEY=key
+APPSFLYER_APP_ID=123,
+DATADOG_CLIENT_TOKEN=key
+DATADOG_PROJECT_ID=123,
+INFURA_KEY=key
+ONESIGNAL_APP_ID=123,
+OPENAI_API_KEY=key
+QUICKNODE_ARBITRUM_RPC_URL=https://api.uniswap.org/
+QUICKNODE_BNB_RPC_URL=https://api.uniswap.org/
+QUICKNODE_MAINNET_RPC_URL=https://api.uniswap.org/
+QUICKNODE_SEPOLIA_RPC_URL=https://api.uniswap.org/
+QUICKNODE_ZORA_RPC_URL=https://api.uniswap.org/
+QUICKNODE_ZKSYNC_RPC_URL=https://api.uniswap.org/
+QUICKNODE_BLAST_RPC_URL=https://api.uniswap.org/
+QUICKNODE_AVAX_RPC_URL=https://api.uniswap.org/
+QUICKNODE_BASE_RPC_URL=https://api.uniswap.org/
+QUICKNODE_CELO_RPC_URL=https://api.uniswap.org/
+QUICKNODE_OP_RPC_URL=https://api.uniswap.org/
+QUICKNODE_POLYGON_RPC_URL=https://api.uniswap.org/
+QUICKNODE_WORLDCHAIN_RPC_URL=https://api.uniswap.org/
+QUICKNODE_ASTROCHAIN_SEPOLIA_RPC_URL=https://api.uniswap.org/
+SENTRY_DSN=http://sentry.com/
+SHAKE_CLIENT_ID=123,
+SHAKE_CLIENT_SECRET=123,
+SIMPLEHASH_API_KEY=key
+SIMPLEHASH_API_URL=https://api.simplehash.com/
+STATSIG_PROXY_URL=https://api.statsig.com/
+TRADING_API_KEY=key
+UNISWAP_API_KEY=key
+WALLETCONNECT_PROJECT_ID=123,
+FIREBASE_APP_CHECK_DEBUG_TOKEN=token
+```
 
-For instructions per application or package, see the README published for each application:
+2. Create a folder `__generated__` in apps/web/src/utils.
 
-- [Web](apps/web/README.md)
-- [Mobile](apps/mobile/README.md)
-- [Extension](apps/extension/README.md)
+3. You will get an error regarding package `universe@workspace` while downloading modules because `universe@workspace` IS NOT A PACKAGE. you have to remove the "name" & "version" from the root package.json to resolve this.
 
-## Releases
+4. Then you may encounter issue regarding package @apidevtools/json-schema-ref-parser, I'm trying to solve this right now, I have open an issue on uniswap github [click here to view](https://github.com/Uniswap/interface/issues/7835).
 
-All interface releases are tagged and published to this repository. To browse them easily, see the [Github releases tab](https://github.com/Uniswap/interface/releases).
-
-## Translations
-
-Translations for our applications are done through [crowdin](https://crowdin.com).
-
-| App     | Coverage |
-| ------- | -------- |
-| web     | [![Crowdin](https://badges.crowdin.net/uniswap-interface/localized.svg)](https://crowdin.com/project/uniswap-interface) |
-| wallet  | [![Crowdin](https://badges.crowdin.net/uniswap-wallet/localized.svg)](https://crowdin.com/project/uniswap-wallet) |
-
-## 🗂 Directory Structure
-
-| Folder      | Contents                                                                       |
-| ----------- | ------------------------------------------------------------------------------ |
-| `apps/`     | The home for each standalone application.                                      |
-| `config/`   | Shared infrastructure packages and configurations.                             |
-| `packages/` | Shared code packages covering UI, shared functionality, and shared utilities.  |
