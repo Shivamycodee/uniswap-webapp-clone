@@ -63,3 +63,7 @@ FIREBASE_APP_CHECK_DEBUG_TOKEN=token
 3. You will encounter an error related to the package `universe@workspace` while installing dependencies. This is because `universe@workspace` is **not a valid package**. To resolve this, remove the `"name"` and `"version"` fields from the root `package.json` or you can add `"private":true`.
 
 4. You may also face an issue related to the package `@apidevtools/json-schema-ref-parser`. I am currently working on resolving this and have opened an issue on Uniswap's GitHub. You can track the issue here: [GitHub Issue](https://github.com/Uniswap/interface/issues/7835).
+
+- Update -> The installation is failing because of a script: `tradingapi:generate` , The tradingapi:generate script is trying to read api.json, but it does not exist at the expected path `(D:\unniswap-webapp-clone\node_modules\@apidevtools\json-schema-ref-parser\dist\src\data\tradingApi\api.json)` .
+
+- Another error we get with this is regaridng `root-workspace-0b6124@workspace` ,  the root workspace is being built parallelly could be interfering with the process in a way—if it's locking dependencies, preventing proper symlinking, or failing before everything is properly set up.
